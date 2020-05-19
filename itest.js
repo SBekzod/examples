@@ -1,15 +1,14 @@
 var rect = require('./rectangle');
 
-function solveRect(l, b) {
+async function solveRect(l, b) {
     console.log("Solving for rectange with l = " + l + " and b = " + b);
 
-    rect(l, b, (err, rectan) => {
-        if (err) {
-            console.log("Minus parametres of l or b", err.message);
-        } else {
-            console.log("The area equils to ", rectan.area());
-        }
-    });
+
+    const data = await rect(l, b);
+    if (data) {
+        console.log("Answer" + data.area);
+    }
+
 
     console.log("Say hi");
 }
